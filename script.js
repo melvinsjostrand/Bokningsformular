@@ -122,8 +122,8 @@ function campaignCode(){
     let ok = regexCampaign.exec(campaign);
     console.log(ok);
     if(!ok){
-        campaign.parentNode.style.backgroundColor  = "#008000";
+        campaignCost.form.elements.campaigncode.parentNode.style.backgroundColor  = "#ff0000";
     }else{
-        campaign.parentNode.style.backgroundColor  = "#008000";
+        campaignCost.parentNode.style.backgroundColor  = "#008000";
     }
 }
