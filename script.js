@@ -71,14 +71,18 @@ function additionCost(){
 
 function phoneNumber(){
     const regex = /^0[0-9-/ ]{6,14}$/;
-    let customer = getElementById("customer");
+    let customer = document.getElementById("customer");
     let phone = Number(form.elements.telephone.value);
-        customer.getElementByTagName("p")[4].getElementByTagName("span")[1];
+        customer.getElementsByTagName("p")[4].getElementsByTagName("span")[1];
     let ok = regex.exec(phone);
     if(!ok){
-        customer.getElementByTagName("p")[4].getElementByTagName("span")[1].innerHTML = "det är fel";
-        customer.getElementByTagName("p")[4].getElementByTagName("span")[1].parentNode.style.color = "#ff0000"; 
+        customer.getElementsByTagName("p")[4].getElementsByTagName("span")[1].innerHTML = "Det är fel";
+        customer.getElementsByTagName("p")[4].getElementsByTagName("span")[1].parentNode.style.color = "#ff0000"; 
+        console.log(ok);
     }else{
+        customer.getElementsByTagName("p")[4].getElementsByTagName("span")[1].innerHTML = "";
+        console.log(ok);
         return ok;
+
     }
 }
