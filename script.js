@@ -108,7 +108,7 @@ function zipCode(){
 }
 //funktioner för validering av input fält   
 function campaignCode(){
-    const regexCampaign = /[A-Za-z]{3}-[0-9]{2}-[A-Za-z]{1}[0-9]{1}$/; //alk-13-c5, spelar ingen roll om de är stora eller små
+    const regexCampaign = /[A-Za-z]{3}-[0-9]{2}-[A-Za-z]{1}[0-9]{1}$/;
     let ok = regexCampaign.exec(form.elements.campaigncode.value);
     if(ok){
         form.elements.campaigncode.style.backgroundColor  = "#99ff99";
@@ -125,5 +125,3 @@ function locality(){
     form.elements.city.value = text;
 }
 
-//behöver skapa if(ok){kampanjkod = -5% = *0.95} i calc
-//måste fixa så att färgen ändras på rätt plats
