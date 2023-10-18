@@ -67,7 +67,6 @@ function checkIfFamilyRoom() {
 
 // Funktion för att beräkna kostnaden
 function cost() {
-    let nights = Number(form.elements.nights.value);
     let roomCost = Number(form.elements.roomType.value.split(",")[1]);
     totalCost = document.getElementById("totalCost");
     for (let i = 0; i < form.elements.addition.length; i++) {
@@ -75,17 +74,16 @@ function cost() {
             roomCost += Number(form.elements.addition[i].value.split(",")[1]);
         }
     }
-    totalCost.innerHTML = (roomCost * nights) * campaignCodeValue;
-    console.log("värdet på allt är " + (roomCost * nights) * campaignCodeValue + "Kr");
+    totalCost.innerHTML = (roomCost * Number(form.elements.nights.value)) * campaignCodeValue;
+    console.log("värdet på allt är " + (roomCost * Number(form.elements.nights.value)) * campaignCodeValue + "Kr");
 }
 
 // Funktion för att validera telefonnummer
 function phoneNumber() {
     const regexPhone = /^0[0-9-/ ]{6,14}$/;
-    customer = form.elements.telephone.parentNode.parentNode.getElementsByTagName("span")[1];
     if (!regexPhone.exec(form.elements.telephone.value)) {
-        customer.innerHTML = "Du måste skriva 6 till 14 tecken och börja med 0";
-        customer.parentNode.style.color = "#ff0000";
+        form.elements.telephone.parentNode.parentNode.getElementsByTagName("span")[1].innerHTML = "Du måste skriva 6 till 14 tecken och börja med 0";
+        form.elements.telephone.parentNode.parentNode.getElementsByTagName("span")[1].parentNode.style.color = "#ff0000";
     } else {
         customer.innerHTML = "";
     }
@@ -93,13 +91,12 @@ function phoneNumber() {
 
 // Funktion för att validera postnummer
 function zipCode() {
-    const regexZip = /[0-9]{5}$/;
-    customer = form.elements.zipcode.parentNode.parentNode.getElementsByTagName("span")[1];
+    const regexZip = /[0-9]{5}$/; 
     if (!regexZip.exec(form.elements.zipcode.value)) {
-        customer.innerHTML = "Ditt postnummer måste får endast innehålla siffror och ha 5 siffror";
-        customer.parentNode.style.color = "#ff0000";
+        form.elements.zipcode.parentNode.parentNode.getElementsByTagName("span")[1].innerHTML = "Ditt postnummer måste får endast innehålla siffror och ha 5 siffror";
+        form.elements.zipcode.parentNode.parentNode.getElementsByTagName("span")[1].parentNode.style.color = "#ff0000";
     } else {
-        customer.innerHTML = "";
+        form.elements.zipcode.parentNode.parentNode.getElementsByTagName("span")[1].innerHTML = "";
     }
 }
 
@@ -111,7 +108,6 @@ function campaignCode() {
         campaignCodeValue = 0.95;
     } else {
         form.elements.campaigncode.style.backgroundColor = "#ff0000";
-        campaignCodeValue = 1;
     }
 }
 
